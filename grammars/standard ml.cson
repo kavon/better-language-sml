@@ -57,7 +57,7 @@
     'name': 'meta.definition.fun.ml'
     'patterns': [
       {
-        'include': 'source.ml'
+        'include': 'source.sml'
       }
     ]
   }
@@ -234,4 +234,4 @@
         'include': '#comments'
       }
     ]
-'scopeName': 'source.ml'
+'scopeName': 'source.sml'
