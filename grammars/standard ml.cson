@@ -119,6 +119,16 @@
     'match': '(div|mod|::|@|;)'
     'name': 'keyword.operator.ml'
   }
+  # couldn't find a better class name for this,
+  # but I did want it to be different from the keyword
+  # color.
+  #
+  # names I'm aware of are from here:
+  # https://macromates.com/manual/en/language_grammars.html
+  {
+    'match': '(\\||=>)'
+    'name': 'entity.name.tag.ml'
+  }
   #
   {
     'begin': '(?x)\\b\n\t\t\t\t\t(functor|structure|signature|funsig)\\s+\n\t\t\t\t\t(\\w+)\\s* # identifier'
