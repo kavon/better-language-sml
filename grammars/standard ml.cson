@@ -38,7 +38,7 @@
     'name': 'meta.module.sigdec.ml'
     'patterns': [
       {
-        'include': '#spec'
+        'include': 'source.sml'
       }
     ]
   }
