@@ -1,6 +1,6 @@
 {
   "name": "better-language-sml",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "description": "Standard ML language support for the working programmer",
   "repository": "https://github.com/kavon/better-language-sml",
