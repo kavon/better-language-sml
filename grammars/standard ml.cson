@@ -9,7 +9,7 @@
     'include': '#comments'
   }
   {
-    'match': '\\b(val|datatype|signature|type|op|sharing|struct|as|let|in|abstype|local|where|case|of|fn|raise|exception|handle|ref|infix|infixr|before|end|structure|withtype)\\b'
+    'match': '\\b(val|datatype|signature|type|op|sharing|struct|as|let|in|abstype|local|where|case|of|fn|raise|exception|handle|infix|infixr|end|structure|withtype)\\b'
     'name': 'keyword.other.ml'
   }
   {
@@ -38,13 +38,20 @@
     'name': 'meta.module.sigdec.ml'
     'patterns': [
       {
-        'include': '#spec'
+        'include': 'source.sml'
       }
     ]
   }
   {
-    'match': '\\b(if|then|else)\\b'
+    'match': '\\b(if|then|else|orelse|andalso|before)\\b'
     'name': 'keyword.control.ml'
+  }
+  # repurpose the 'class' term for structure accesses
+  {
+    'match': '([A-Z][a-zA-Z0-9\'_]*)\\.'
+    'captures':
+      '1':
+        'name': 'entity.name.class.markup.italic.ml'
   }
   {
     'begin': '\\b(fun|and)\\s+([\\w]+)\\b'
@@ -57,7 +64,7 @@
     'name': 'meta.definition.fun.ml'
     'patterns': [
       {
-        'include': 'source.ml'
+        'include': 'source.sml'
       }
     ]
   }
@@ -91,10 +98,38 @@
     'match': '\\b\\d*\\.?\\d+\\b'
     'name': 'constant.numeric.ml'
   }
+  #
+  # http://sml-family.org/Basis/top-level-chapter.html
+  # some of these idents overlap with type names, so
+  # i've hand-selected only the most "useful" ones
   {
-    'match': '\\b(andalso|orelse|not)\\b'
-    'name': 'keyword.operator.logical.ml'
+    'match': '\\b(abs|app|ceil|chr|concat|exnMessage|exnName|explode|floor|foldl|foldr|getOpt|hd|ignore|implode|isSome|length|map|not|null|o|ord|print|rev|tl|trunc|valOf)\\b'
+    'name': 'support.function.ml'
   }
+  {
+    'match': '\\b(false|true|NONE|SOME|LESS|EQUAL|GREATER|nil)\\b'
+    'name': 'support.constant.ml'
+  }
+  {
+    'match': '\\b(unit|int|word|real|char|string|substring|exn|array|vector|ref|bool|option|order|list)\\b'
+    'name': 'support.type.ml'
+  }
+  # only a selection of "important" ones to distinguish
+  {
+    'match': '(div|mod|::|@|;)'
+    'name': 'keyword.operator.ml'
+  }
+  # couldn't find a better class name for this,
+  # but I did want it to be different from the keyword
+  # color.
+  #
+  # names I'm aware of are from here:
+  # https://macromates.com/manual/en/language_grammars.html
+  {
+    'match': '(\\||=>)'
+    'name': 'entity.name.tag.ml'
+  }
+  #
   {
     'begin': '(?x)\\b\n\t\t\t\t\t(functor|structure|signature|funsig)\\s+\n\t\t\t\t\t(\\w+)\\s* # identifier'
     'captures':
@@ -108,10 +143,6 @@
   {
     'match': '\\b(open)\\b'
     'name': 'keyword.other.module.ml'
-  }
-  {
-    'match': '\\b(nil|true|false|NONE|SOME)\\b'
-    'name': 'constant.language.ml'
   }
   {
     'begin': '\\b(type|eqtype) .* ='
@@ -234,4 +265,4 @@
         'include': '#comments'
       }
     ]
-'scopeName': 'source.ml'
+'scopeName': 'source.sml'

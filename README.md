@@ -1,12 +1,26 @@
-# Standard ML language support in Atom
+# "Better" Standard ML language support for Atom
 
-Adds syntax highlighting and snippets to Standard ML files in Atom.
+This package provides the following for SML:
 
-Originally [converted](https://atom.io/docs/latest/hacking-atom-converting-from-textmate)
-from the [standard-ml.tmbundle](https://github.com/textmate/standard-ml.tmbundle).
+- Syntax highlighting.
+- Code snippets.
 
-Contributions are greatly appreciated. Please fork this repository and open a
-pull request to add snippets, make grammar tweaks, etc.
+This package was forked from [language-sml](https://github.com/Jakehp/language-sml)
+to fast-track my own readability improvements for SML programmers using Atom.
 
-Contributors:  
-[j-baker](https://github.com/j-baker), [jonsterling](https://github.com/jonsterling), [kavon](https://github.com/kavon), [ak3n](https://github.com/ak3n)
+### Syntax Highlighting Features
+
+In addition to basic keyword highlighting, we also provide the following readability improvements:
+
+- When a structure member is accessed, the structure's name is highlighted.
+- Many entities available in the top-level namespace, such as `map` are highlighted.
+- Some important punctuation such as `|`, `=>`, and `;` are also highlighted.
+- Some operators, like `div` and `::` are highlighted.
+
+Screenshot (using the "Fega High Contrast" theme to show all color classes):
+
+![screenshot here](screenshot.png)
+
+### Contributing
+
+Contributions are greatly appreciated. Feel free to open pull requests or make suggestions by opening an issue.

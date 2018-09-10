@@ -7,7 +7,7 @@
   'editor':
     'commentStart': '(*'
     'commentEnd': '*)'
-'.source.ml':
+'.source.sml':
   'editor':
     'commentStart': '(*'
     'commentEnd': '*)'
