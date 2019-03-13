@@ -30,6 +30,16 @@
   {
     'include': '#comments'
   }
+  # recognize: val rec x = ...
+  {
+    'match': '\\b(val)\\s+(rec)?\\b'
+    'captures':
+      '1':
+        'name': 'keyword.other.ml'
+      '2':
+        'name': 'keyword.other.ml'
+    'name': 'meta.exp.ml.val'
+  }
   {
     'begin': '\\b(let)\\b'
     'captures':
