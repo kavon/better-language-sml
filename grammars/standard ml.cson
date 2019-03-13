@@ -1,3 +1,25 @@
+######
+# Section 2.4 of SML'97 definition:
+#
+# An identifier is either alphanumeric: any sequence of letters, digits, primes
+# (') and underbars (_) starting with a letter or prime, or symbolic: any non-
+# empty sequence of the following symbols
+# ! % & $ # + - / : < = > ? @ \ ~ ' ^ | *
+#
+# In either case, however, reserved words are excluded. This means that for
+# example # and | are not identifiers, but ## and |=| are identifiers.
+# The only exception to this rule is that the symbol = , which is a reserved
+# word, is also allowed as an identifier to stand for the equality predicate. The
+# identifier = may not be re-bound; this precludes any syntactic ambiguity.
+#
+########
+#
+# Since this is a rather complex definition, we're ignoring symbolic identifers
+# for now. You shuld use the following regex to cover most common identifers:
+#
+#     [a-zA-Z\'][a-zA-Z0-9\'_]*
+#
+
 'fileTypes': [
   'sml'
   'sig'
@@ -47,6 +69,8 @@
     'name': 'keyword.control.ml'
   }
   # repurpose the 'class' term for structure accesses
+  # NOTE: we expect first letter here to be capital purely from
+  # common naming conventions.
   {
     'match': '([A-Z][a-zA-Z0-9\'_]*)\\s*\\.'
     'captures':
@@ -54,7 +78,7 @@
         'name': 'entity.name.class.markup.italic.ml'
   }
   {
-    'begin': '\\b(fun|and)\\s+([\\w]+)\\b'
+    'begin': '\\b(fun|and)\\s+([a-zA-Z\'][a-zA-Z0-9\'_]*)\\b'
     'captures':
       '1':
         'name': 'keyword.control.fun.ml'
@@ -131,7 +155,7 @@
   }
   #
   {
-    'begin': '(?x)\\b\n\t\t\t\t\t(functor|structure|signature|funsig)\\s+\n\t\t\t\t\t(\\w+)\\s* # identifier'
+    'begin': '(?x)\\b\n\t\t\t\t\t(functor|structure|signature|funsig)\\s+\n\t\t\t\t\t([a-zA-Z\'][a-zA-Z0-9\'_]*)\\s* # identifier'
     'captures':
       '1':
         'name': 'storage.type.module.binder.ml'
@@ -239,7 +263,7 @@
         'name': 'meta.spec.ml.val'
       }
       {
-        'begin': '\\b(structure)\\s*(\\w+)\\s*:'
+        'begin': '\\b(structure)\\s*([a-zA-Z\'][a-zA-Z0-9\'_]*)\\s*:'
         'captures':
           '1':
             'name': 'keyword.other.ml'
