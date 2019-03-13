@@ -303,8 +303,10 @@
         'name': 'meta.spec.ml.structure'
         'patterns': [
           {
-            'match': '\\b(sharing|where)\\b'
-            'name': 'keyword.other.ml'
+            'match': '\\b(sharing|where)\\s+.+'
+            'captures':
+              '1':
+                'name': 'keyword.other.ml'
           }
           {
             'include': '#comments'
