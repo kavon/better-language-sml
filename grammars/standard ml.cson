@@ -300,6 +300,24 @@
         'match': '\\b(include)\\s+([a-zA-Z\'][a-zA-Z0-9\'_]*)'
         'name': 'meta.spec.ml.include'
       }
+      # make long type signatures easier to read in sigs
+      # by highlighting -> and *
+      #
+      # NOTE: this is a quick and dirty solution. In reality
+      # it would be nice to also highlight parens specially.
+      # I believe we would just need to look for everything after : in
+      #    val ident : < type sig highlighting pattern >
+      # and the code for this can be integrated in the regular highlighting
+      # above for type sigs.
+      {
+        'match': '->'
+        'name': 'entity.name.tag.ml'
+      }
+      {
+        'match': '\\*'
+        'name': 'markup.bold'
+      }
+
       {
         'include': '#comments'
       }
