@@ -267,10 +267,12 @@
         ]
       }
       {
+        'match': '\\b((?:val)|(?:and))\\s*([^:]+)\\s*(:)'
         'captures':
           '1':
             'name': 'keyword.other.ml'
-        'match': '\\b((?:val)|(?:and))\\s*([^:]+)\\s*:'
+          '2':
+            'name': 'entity.name.function.ml'
         'name': 'meta.spec.ml.val'
       }
       {
@@ -293,7 +295,9 @@
         'captures':
           '1':
             'name': 'keyword.other.ml'
-        'match': '\\b(include)\\b'
+          '2':
+            'name': 'entity.name.type.module.ml'
+        'match': '\\b(include)\\s+([a-zA-Z\'][a-zA-Z0-9\'_]*)'
         'name': 'meta.spec.ml.include'
       }
       {
