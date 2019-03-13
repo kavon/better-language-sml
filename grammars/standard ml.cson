@@ -224,7 +224,7 @@
             'name': 'keyword.other.ml'
           '2':
             'name': 'entity.name.type.abbrev.ml'
-        'match': '\\b(type|eqtype)\\s+((?:[a-z\']+\\s+)?[a-zA-Z\'][a-zA-Z0-9\'_]*)'
+        'match': '\\b(type|eqtype)\\s+((?:\'+[a-z]\\s+)?[a-zA-Z\'][a-zA-Z0-9\'_]*)'
         'name': 'meta.spec.ml.type'
       }
       {
@@ -235,11 +235,11 @@
             'name': 'entity.name.type.abbrev.ml'
           '3':
             'name': 'keyword.other.ml'
-        'match': '\\b(exception)\\s+((?:[a-z\']+\\s+)?[a-zA-Z\'][a-zA-Z0-9\'_]*)\\s+(of)?'
+        'match': '\\b(exception)\\s+((?:\'+[a-z]\\s+)?[a-zA-Z\'][a-zA-Z0-9\'_]*)\\s+(of)?'
         'name': 'meta.spec.ml.type'
       }
       {
-        'begin': '\\b(datatype)\\s+((?:[a-z\']+\\s+)?[a-zA-Z\'][a-zA-Z0-9\'_]*)'
+        'begin': '\\b(datatype)\\s+((?:\'+[a-z]\\s+)?[a-zA-Z\'][a-zA-Z0-9\'_]*)'
         'captures':
           '1':
             'name': 'keyword.other.ml'
