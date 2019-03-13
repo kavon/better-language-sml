@@ -1,6 +1,6 @@
 # "Better" Standard ML language support for Atom
 
-This package provides the following for SML:
+This package provides the following for Standard ML (SML):
 
 - Syntax highlighting.
 - Code snippets.
