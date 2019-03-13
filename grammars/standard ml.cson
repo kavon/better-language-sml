@@ -192,7 +192,7 @@
   }
   # bunch of keywords otherwise not matched
   {
-    'match': '\\b(val|datatype|signature|type|op|struct|as|let|in|abstype|local|where|case|of|fn|raise|exception|handle|infix|infixr|end|structure|withtype)\\b'
+    'match': '\\b(val|datatype|signature|type|op|struct|as|let|in|abstype|local|case|of|fn|raise|exception|handle|infix|infixr|end|structure|withtype)\\b'
     'name': 'keyword.other.ml'
   }
 ]
@@ -245,7 +245,7 @@
             'name': 'keyword.other.ml'
           '2':
             'name': 'entity.name.type.datatype.ml'
-        'end': '(?=val|type|eqtype|datatype|structure|include|exception)'
+        'end': '(?=val|type|eqtype|datatype|structure|include|exception|end)'
         'name': 'meta.spec.ml.datatype'
         'patterns': [
           {
@@ -254,26 +254,32 @@
                 'name': 'keyword.other.ml'
               '2':
                 'name': 'entity.name.type.datatype.ml'
-            'match': '\\b(and)\\s+([a-zA-Z\'][a-zA-Z0-9\'_]*)'
+            'match': '\\b(and)\\s+((?:[a-z\']+\\s+)?[a-zA-Z\'][a-zA-Z0-9\'_]*)'
             'name': 'meta.spec.ml.datatype'
           }
+
+          # NOTE: it's not feasible to fix issues with multi-line
+          # patterns such as:
+          #
+          #     datatype color =
+          #            Red
+          #          | Blue
+          #
+          # where "Red" is not matched by the pattern correctly, since
+          # TextMate patterns can't span multiple lines.
+          # see some discussion here:
+          # https://github.com/Microsoft/vscode-textmate/issues/41#issuecomment-344294298
           {
             'captures':
               '1':
                 'name': 'variable.other.dcon.ml'
               '2':
                 'name': 'keyword.other.ml'
-            'match': '(?x)\n\t\t\t\t\t\t\t=\\s*([a-zA-Z][a-zA-Z0-9\'_]*)(\\s+of)?'
+            'match': '(?:=|\\|)\\s*([a-zA-Z][a-zA-Z0-9\'_]*)\\s+(of)?'
             'name': 'meta.datatype.rule.main.ml'
           }
           {
-            'captures':
-              '1':
-                'name': 'variable.other.dcon.ml'
-              '2':
-                'name': 'keyword.other.ml'
-            'match': '\\|\\s*([a-zA-Z][a-zA-Z0-9\'_]*)(\\s+of)?'
-            'name': 'meta.datatype.rule.other.ml'
+            'include': '#comments'
           }
         ]
       }
@@ -293,12 +299,15 @@
             'name': 'keyword.other.ml'
           '2':
             'name': 'entity.name.type.module.ml'
-        'end': '(?=val|type|eqtype|datatype|structure|include)'
+        'end': '(?=val|type|eqtype|datatype|structure|include|end)'
         'name': 'meta.spec.ml.structure'
         'patterns': [
           {
-            'match': '\\b(sharing)\\b'
+            'match': '\\b(sharing|where)\\b'
             'name': 'keyword.other.ml'
+          }
+          {
+            'include': '#comments'
           }
         ]
       }

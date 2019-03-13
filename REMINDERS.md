@@ -8,6 +8,10 @@ this page in particular is useful:
 
 https://macromates.com/manual/en/language_grammars.html
 
+regex language spec:
+
+https://github.com/kkos/oniguruma/blob/master/doc/RE
+
 
 Publishing new versions:
 
@@ -19,4 +23,4 @@ Basically:
 
 2. apm publish <major / minor / patch>
     username = kavon
-    pw = the current token 
+    pw = the current token
