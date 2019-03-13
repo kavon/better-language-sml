@@ -7,3 +7,8 @@ https://flight-manual.atom.io/hacking-atom/sections/creating-a-legacy-textmate-g
 this page in particular is useful:
 
 https://macromates.com/manual/en/language_grammars.html
+
+
+Publishing new versions:
+
+https://flight-manual.atom.io/hacking-atom/sections/publishing/
