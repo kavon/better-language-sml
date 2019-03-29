@@ -11,3 +11,5 @@
   'editor':
     'commentStart': '(*'
     'commentEnd': '*)'
+    'tabLength': 2
+    'tabType': 'soft'
