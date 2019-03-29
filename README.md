@@ -23,4 +23,11 @@ Screenshot (using the "Fega High Contrast" theme to show all color classes):
 
 ### Contributing
 
-Contributions are greatly appreciated. Feel free to open pull requests or make suggestions by opening an issue.
+Contributions are greatly appreciated. Feel free to open pull requests or
+make suggestions by opening an issue.
+
+#### Thanks
+
+I'm grateful for patches from:
+
+- [k4rtik](https://github.com/k4rtik)
